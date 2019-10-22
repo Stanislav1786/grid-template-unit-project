@@ -1,0 +1,96 @@
+.about {
+  padding: 100px 0 61px;
+  display: grid;
+  width: 100%;
+  align-items: center;
+  background-color: $color-gray-light;
+
+  @include lg {
+    padding: 87px 0 87px;
+  }
+
+  @include md {
+    padding: 64px 0 64px;
+  }
+
+  &__container {
+    @extend %container;
+    display: grid;
+    grid-template-columns: 1fr 271px;
+    grid-template-areas: "a1 a2";
+    grid-gap: 59px;
+
+    @include md-sm {
+      grid-template-columns: 1fr 236px;
+    }
+
+    @include sm {
+      margin-bottom: 63px;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      grid-gap: 30px;
+      grid-template-areas: "a1"
+                           "a2";
+    }
+  }
+
+  &__article {
+    grid-area: a1;
+  }
+
+  &__article h2 {
+    margin-top: 0;
+    margin-bottom: 50px;
+    letter-spacing: 0.1em;
+    color: $color-main;
+    box-sizing: border-box;
+
+    @include lg {
+      margin-bottom: 35px;
+    }
+
+    @include md {
+      margin-bottom: 30px;
+    }
+
+    @include sm {
+      text-align: center;
+    }
+  }
+
+  &__article p {
+    margin: 16px 0 0;
+    position: relative;
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    line-height: 1.355em;
+    color: $color-gray;
+
+    @include md {
+      font-size: 1rem;
+    }
+  }
+
+  &__article p:first-of-type::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -30px;
+    height: 200px;
+    border-left: 2px solid $c5;
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  &__image {
+    display: grid;
+    align-content: center;
+    grid-area: a2;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

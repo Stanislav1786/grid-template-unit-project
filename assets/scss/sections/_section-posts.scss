@@ -1,0 +1,170 @@
+.posts {
+
+  &__container {
+    @extend %container;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 85px repeat(2, 550px) 60px;
+    grid-gap: 20px;
+    grid-template-areas: "a1 a1 a1 a1"
+                         "a2 a2 a3 a4"
+                         "a5 a6 a7 a7"
+                         "a8 a8 a8 a8";
+
+    @include lg {
+      margin: 80px auto;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 61px repeat(3, 550px) 60px;
+      grid-gap: 20px;
+      grid-template-areas: "a1 a1 a1"
+                           "a2 a2 a3"
+                           "a4 a5 a5"
+                           "a6 a6 a7"
+                           "a8 a8 a8";
+    }
+
+    @include md {
+      margin: 60px auto;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 38px repeat(3, 550px) 60px;
+      grid-gap: 20px;
+      grid-template-areas: "a1 a1"
+                           "a2 a3"
+                           "a4 a5"
+                           "a6 a7"
+                           "a8 a8";
+      }
+
+      @include sm {
+        justify-items: center;
+        margin: 60px auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 40px repeat(6, 55.44vh) 60px;
+        grid-gap: 20px;
+        grid-template-areas: "a1"
+                             "a2"
+                             "a3"
+                             "a4"
+                             "a5"
+                             "a6"
+                             "a7"
+                             "a8";
+      }
+
+      @include xs {
+        grid-template-columns: 1fr;
+        grid-template-rows: 40px repeat(6, 55.44vh) 60px;
+      }
+    }
+
+    &__button {
+      display: flex;
+      width: 100%;
+      height: 100px;
+      justify-content: center;
+      grid-area: a8;
+    }
+
+    &__button-link {
+      min-width: 350px;
+      background-color: $c1;
+      border: 2px solid $color-main;
+    }
+  }
+
+.posts-header {
+  margin: 0;
+  padding-bottom: 34px;
+  letter-spacing: 0.1em;
+  color: $color-main;
+  box-sizing: border-box;
+  grid-area: a1;
+}
+
+.posts-item:nth-of-type(1) {
+  grid-area: a2;
+}
+
+.posts-item:nth-of-type(2) {
+  grid-area: a3;
+}
+
+.posts-item:nth-of-type(3) {
+  grid-area: a4;
+}
+
+.posts-item:nth-of-type(4) {
+  grid-area: a5;
+}
+
+.posts-item:nth-of-type(5) {
+  grid-area: a6;
+}
+
+.posts-item:nth-of-type(6) {
+  grid-area: a7;
+}
+
+.posts-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 54.54% 45.45%;
+  overflow: hidden;
+
+  &__image {
+    top: 0;
+    left: 0;
+    right: 0;
+    background-position: 50% 50%;
+    background-size: cover;
+    transition: all 0.5s;
+  }
+
+  &__article {
+    padding: 0 15px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    text-align: center;
+    color: $color-gray;
+    background-color: $c3;
+    transition: all 0.5s;
+    z-index: 1;
+
+    h3 {
+      margin: 0 auto;
+      padding-top: 18px;
+      font-family: $font-header;
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+      line-height: 1em;
+    }
+
+    p {
+      margin: 18px auto;
+      font-family: $font-main;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      line-height: 1.13em;
+    }
+
+    &--first-post p {
+      letter-spacing: 0.018em;
+    }
+
+    &--last-post p {
+      padding: 0 15px;
+    }
+  }
+
+  &:hover .posts-item__image,
+  &:focus .posts-item__image {
+    transform: scale(1.1);
+  }
+
+  &:hover .posts-item__article,
+  &:focus .posts-item__article {
+    background-color: $c3h;
+  }
+}

@@ -1,0 +1,94 @@
+.form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    min-height: 120px;
+    background-color: $color-main;
+    @include lg {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        min-height: 100px;
+    }
+    &__container {
+        @extend %container;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "b1 b2 b3";
+        justify-content: center;
+        grid-gap: 20px;
+        @include lg {
+            max-width: 990px;
+        }
+        @include md {
+            max-width: 768px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: "b1 b1" "b2 b3";
+        }
+        @include sm {
+            max-width: 576px;
+            grid-template-columns: 1fr;
+            grid-template-areas: "b1" "b2" "b3";
+        }
+        &--input:nth-of-type(1) {
+            grid-area: b1;
+        }
+        &--input:nth-of-type(2) {
+            grid-area: b2;
+        }
+        &--button:nth-of-type(1) {
+            grid-area: b3;
+        }
+        &--input,
+        &--button {
+            height: 60px;
+            padding: 16px 0;
+            font-family: $font-main;
+            font-size: 18px;
+            letter-spacing: 0.1em;
+            color: $color-light;
+            border: none;
+            border-bottom: 3px solid $c2-2;
+            background-color: $c2-1;
+            transition: background-color 0.5s;
+            @include lg {
+                font-size: 1rem;
+            }
+        }
+        &--first-name,
+        &--e-mail {
+            padding-left: 30px;
+            color: $color-gray-light;
+            @include lg {
+                padding-left: 25px;
+            }
+            @include md {
+                padding-left: 20px;
+            }
+        }
+        &--first-name:hover::placeholder,
+        &--e-mail:hover::placeholder,
+        &--first-name:focus::placeholder,
+        &--e-mail:focus::placeholder {
+            color: $color-light;
+        }
+        &--first-name:hover,
+        &--e-mail:hover,
+        &--first-name:focus,
+        &--e-mail:focus {
+            outline: none;
+            border-bottom: 3px solid $color-light;
+            background-color: $c2-2;
+        }
+        &--button {
+            border-bottom: 3px solid #9B9FAC;
+            background-color: $c4;
+        }
+        &--button:hover,
+        &--button:focus {
+            padding: 13px 0 16px;
+            background-color: $color-accent;
+            border: 3px solid $color-light;
+        }
+    }
+}
